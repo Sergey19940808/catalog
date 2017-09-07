@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- Templates for show one course -->
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+  <title> Просмотр выбранного курса | Каталог курсов</title>
+{% endblock %}
+
+
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Описание выбранного курса:</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <br>
+  <ul>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        <h3><p><strong>Название курса:</strong> {{ course.name }}</p></h3>
+        <br>
+          <div class="panel-body">
+            <h3><p><strong>Описание курса:</strong> {{ course.description|linebreaks }}</p>
+            <br>
+            <p><strong>Дата публикации:</strong> {{ course.date_added|date:'d.m.Y, H:i:s' }}</p>
+            <br>
+              <a href="{% url 'edit-course' course.id %}"> ▲ Редактировать</a>
+              <a href="{% url 'delete-course' course.id %}"> ✖ Удалить</a></h3>
+          </div>
+        </div>
+      </div>
+  </ul>
+{% endblock content %}

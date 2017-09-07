@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- Templates edit foto -->
+{% extends 'base.html' %}
+{% load bootstrap3 %}
 
-</body>
-</html>
+{% block title %}
+  <title> Поиск курса | Каталог курсов</title>
+{% endblock %}
+
+{% block header %}
+  <h2>Поиск курсов:</h2>
+{% endblock header %}
+
+
+{% block content %}
+
+  <br>
+  <form action="{% url 'search-course' %}" method="get">
+       <div class="form-group">
+         <p><label>Введите название</label></p>
+         <p><input type="text" class="form-control" name="query" placeholder="Название курса" required></p>
+         <small id="name" class="form-text text-muted">Пример: "Курс по математике"</small>
+       </div>
+
+       <div class="form-group">
+         <p><label>Введите описание</label></p>
+         <p><textarea  type="text" class="form-control" rows="12" name="query" placeholder="Описание курса"
+         required></textarea></p>
+         <small id="text" class="form-text text-muted">Пример: "В этом курсе ..."</small>
+       </div>
+
+       <div class="form-group">
+         <p><label>Введите дату публикации</label></p>
+         <p><input type="text" class="form-control" name="query" placeholder="Дата публикации" required></p>
+         <small id="date_added" class="form-text text-muted">Обязательно вводите дату в таком формате:
+         2017-05-19; то есть, Год-Месяц-День</small>
+       </div>
+       <br>
+       <input type="submit" value="Поиск" class="btn btn-primary">
+   </form>
+
+
+
+  {% if query %}
+    <h2>Результаты запроса: </h2>
+    <br>
+      {% if posts %}
+        <ul>
+          {% for post in posts %}
+            <h4><li><a href="{% url 'select-course' post.id %}">{{ post.name }}</a></li></h4>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <h4><li>Нет найденных курсов</li></h4>
+      {% endif %}
+  {% endif %}
+
+{% endblock content %}
