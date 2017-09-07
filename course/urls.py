@@ -9,6 +9,6 @@ from .views import ShowHomePage, AddCourse
 
 urlpatterns = [
     url(r'^$', ShowHomePage.as_view(model = Course, template_name = 'course/home_page_catalog.html'), name = 'show-home'),
-    url(r'^/add_course/$', AddCourse.as_view(model= Course, template_name = 'course/add_page_course.html'), name='add-course'),
+    url(r'^add_course/$', AddCourse.as_view(template_name = 'course/add_page_course.html'), name='add-course'),
 
 ]

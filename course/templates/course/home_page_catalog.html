@@ -17,7 +17,7 @@
 
   <br>
   <ul>
-    <h3><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</h3>
+    <h3><a href="{% url 'add-course' %}"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a></h3>
   </ul>
 
   <br>
@@ -27,7 +27,7 @@
 
   <ul>
     {% for course in courses %}
-      <h3><li><a href="#"></a>--></li></h3>
+      <h3><li><a href="#"></a></li></h3>
     {% empty %}
       <h3><li>Курсов не обнаружено</li></h3>
     {% endfor %}
