@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- Templates add new course -->
+{% extends 'base.html' %}
+{% load bootstrap3 %}
 
-</body>
-</html>
+{% block title %}
+  <title> Добавление курса | Каталог курсов</title>
+{% endblock %}
+
+{% block header %}
+  <h2>Добавление нового курса:</h2>
+{% endblock header %}
+
+
+{% block content %}
+  <form method="post" action="{% url 'add-course' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">Добавить</button>
+    {% endbuttons %}
+
+  </form>
+
+{% endblock content %}

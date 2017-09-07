@@ -14,9 +14,12 @@
 
 {% block content %}
   <h2>Здесь находится список всех добавленных курсов.</h2>
+
   <br>
-  <h3>Нажмите <!--<a href="{% url 'add_foto' %}">
-  сюда</a>-->, чтобы добавить новое изображение.</h3>
+  <ul>
+    <h3><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</h3>
+  </ul>
+
   <br>
   <br>
   <h3>Выберите имя изображения, чтобы увидеть её подробное описание:</h3>
@@ -24,8 +27,10 @@
 
   <ul>
     {% for course in courses %}
-      <h3><li><!--<a href="{% url 'foto' foto.id %}">{{ foto.name }}</a>--></li></h3>
+      <h3><li><a href="#"></a>--></li></h3>
     {% empty %}
-      <h3>Курсов не обнаружено</h3>
+      <h3><li>Курсов не обнаружено</li></h3>
     {% endfor %}
   </ul>
+
+{% endblock content %}

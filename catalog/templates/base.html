@@ -5,14 +5,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="shortcut icon" href="http://faviconka.ru/ico/faviconka_ru_1392.png" type="image/png"> -->
+    <link rel="shortcut icon" href="http://faviconka.ru/ico/faviconka_ru_1392.png" type="image/png">
 
     {% block title %}{% endblock %}
 
-
+    <!-- load static -->
     {% load static %}
 
-      <link rel="stylesheet" type="text/css" href="{% static 'course/course.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'course/css/course.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'course/css/bootstrap.min.css' %}" />
+
+      <script src="{% static 'course/js/jquery.min.js' %}"></script>
+      <script src="{% static 'course/js/popper.min.js' %}"></script>
+      <script src="{% static 'course/js/bootstrap.min.js' %}"></script>
+
 
     <!-- load items bootstrap -->
     {% load bootstrap3 %}
@@ -25,21 +31,20 @@
 
   <body>
     <!-- static navigation panel -->
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-          </button>
-          <a class="navbar-brand" href="{% url 'index' %}">Каталог курсов</a>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'search_foto' %}">Поиск курсов</a></li>
+        <a class="navbar-brand" href="{% url 'show-home' %}">Каталог курсов</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Поиск курсов</a>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -57,7 +62,7 @@
     <!-- bottom page -->
     <footer class="footer">
       <br>
-      <h4 align="center">Ваш каталог для хранения курсов и их последующего изучения - 2017"</h4>
+      <h3 align="center"><small>Ваш каталог для хранения курсов и их последующего изучения - 2017"</small></h3>
     </footer>
   </body>
 </html>
