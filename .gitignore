@@ -3,7 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-*.idea/
+.idea/
+
 
 # C extensions
 *.so
@@ -102,4 +103,9 @@ ENV/
 # mypy
 .mypy_cache/
 .idea/workspace.xml
+.idea/modules.xml
+.idea/catalog.iml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/inspectionProfiles/
 course/migrations/
