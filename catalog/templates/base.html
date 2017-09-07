@@ -1,0 +1,63 @@
+<!-- base templates -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="shortcut icon" href="http://faviconka.ru/ico/faviconka_ru_1392.png" type="image/png"> -->
+
+    {% block title %}{% endblock %}
+
+
+    {% load static %}
+
+      <link rel="stylesheet" type="text/css" href="{% static 'course/course.css' %}" />
+
+    <!-- load items bootstrap -->
+    {% load bootstrap3 %}
+
+    <!-- load items css and JS -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+  </head>
+
+  <body>
+    <!-- static navigation panel -->
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">Каталог курсов</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'search_foto' %}">Поиск курсов</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <!-- extends daughters templates -->
+    <div class="container">
+      <div class="page-header">
+        {% block header %}{% endblock header %}
+      </div>
+      <div>
+        {% block content %}{% endblock content %}
+      </div>
+    </div> <!-- /container -->
+
+    <!-- bottom page -->
+    <footer class="footer">
+      <br>
+      <h4 align="center">Ваш каталог для хранения курсов и их последующего изучения - 2017"</h4>
+    </footer>
+  </body>
+</html>

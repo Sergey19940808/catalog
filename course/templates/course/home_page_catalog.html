@@ -1,0 +1,31 @@
+<!-- templates home page -->
+{% extends 'base.html' %}
+
+{% block title %}
+  <title> Домашняя | Каталог курсов</title>
+{% endblock %}
+
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Каталог ваших курсов:</h1>
+  </div>
+{% endblock header %}
+
+
+{% block content %}
+  <h2>Здесь находится список всех добавленных курсов.</h2>
+  <br>
+  <h3>Нажмите <!--<a href="{% url 'add_foto' %}">
+  сюда</a>-->, чтобы добавить новое изображение.</h3>
+  <br>
+  <br>
+  <h3>Выберите имя изображения, чтобы увидеть её подробное описание:</h3>
+  <br>
+
+  <ul>
+    {% for course in courses %}
+      <h3><li><!--<a href="{% url 'foto' foto.id %}">{{ foto.name }}</a>--></li></h3>
+    {% empty %}
+      <h3>Курсов не обнаружено</h3>
+    {% endfor %}
+  </ul>
