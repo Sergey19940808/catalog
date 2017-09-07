@@ -102,10 +102,5 @@ ENV/
 
 # mypy
 .mypy_cache/
-.idea/workspace.xml
-.idea/modules.xml
-.idea/catalog.iml
-.idea/vcs.xml
-.idea/misc.xml
-.idea/inspectionProfiles/
+.idea
 course/migrations/
