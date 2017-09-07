@@ -7,7 +7,6 @@ from .views import ShowHome, SelectCourse, AddCourse, EditCourse, \
     SearchCourse, DeleteCourse
 
 # Create urls for app course
-
 urlpatterns = [
     url(r'^$', ShowHome.as_view(model = Course, template_name = 'course/home_page_catalog.html'),
     name = 'show-home'),
